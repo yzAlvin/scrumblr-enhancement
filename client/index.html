@@ -36,8 +36,9 @@
     <!-- Socket.IO -->
     <!-- <script src="socket.io/socket.io.js"></script> -->
     <!-- ** My Script ** -->
+    <script src="environment.js"></script>
     <script src="script.js"></script>
-    <script src="middleware.js"></script>
+    <script src="still-frontend.js"></script>
     <script type="text/javascript">
       //Retrieve and append board name on load.
       window.onload = localStorage.getItem("boardName");
@@ -51,6 +52,10 @@
     <title></title>
   </head>
   <body>
+    <script>
+      
+      console.log(getBoardById("1adafb42-8879-49c7-868d-a89317bd6cf1"));
+    </script>
     <div class="notice-bar">
       this is a demo board. to make a private board, go to
       <a href="/demo">/demo</a>
@@ -58,10 +63,9 @@
 
     <!--div.config-->
     <!--	i.fa.fa-cog.fa-lg.faded-icon-->
-    <h1>
-      <a href="http://scrumblr.ca">scrumblr</a> by
-      <a href="http://aliasaria.ca">aliasaria</a>
-    </h1>
+  <script>
+     // console.log(getBoardById("10b0b776-ed69-4dfe-aabf-ca0c18150fb3").BoardName);
+  </script>
     <div class="board-outline">
       <div id="board">
         <div id="board-doodles"></div>

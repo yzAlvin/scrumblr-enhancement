@@ -1,5 +1,5 @@
 let middlware_boardid = "";
-const url;
+let url;
 
 function go() {
   url = ENV.URL;
@@ -9,8 +9,8 @@ function go() {
   localStorage.setItem("boardName", value);
   //patchBoardName("74171dcb-ee89-496a-828a-1b1c7302f628", "I am a small board")
 // deleteBoard("09e49698-05b6-4457-8271-2a288af9f6f5")
-// getBoardById("6f28a5d4-b14c-455b-9245-60d9e561d84e");
-// getBoards();
+getBoardById("1adafb42-8879-49c7-868d-a89317bd6cf1");
+//getBoards();
 let responseCode = postBoardName(value);
 
 // postNote("I am a note", "6f28a5d4-b14c-455b-9245-60d9e561d84e");
@@ -52,7 +52,7 @@ async function postBoardName(boardName) {
   })
 
     .then((response) => {
-      //window.location.href = "index.html";
+      window.location.href = "index.html";
       // middlware_boardid=JSON.stringify(response.JSON());
       response_status=response.status;
       return response.text().then(function (text) {
@@ -70,12 +70,14 @@ async function postBoardName(boardName) {
     return response_status;
 }
 
-function getBoards() {
-  fetch(url)
+async function getBoards() {
+  let  boards = await fetch(url)
     .then((response) => response.text())
     .then((json) => {
       console.log(JSON.stringify(json));
     });
+    console.log(boards)
+
   }
 
   // function getBoardByName(value)
@@ -132,7 +134,7 @@ console.log("note inserted");
 
 async function getBoardById(boardIdtoGet)
 {
- let  board = await fetch (url+boardIdtoGet,
+ let  board = await fetch (url+"/"+boardIdtoGet,
   {
     method : "GET",
     mode : "cors",
@@ -142,19 +144,22 @@ async function getBoardById(boardIdtoGet)
       }
   })
 
-  .then((response) => {
+.then((response) => {
     //window.location.href = "index.html";
     // middlware_boardid=JSON.stringify(response.JSON());
-
+    
+      //response.json().then(console.log(text))
+    
     return response.text().then(function (text) {
      
-      return text ? JSON.parse(text) : {
+     
+      return text ? console.log(text) : {
         
         
       };
     });
   })
-  console.log(board);
+  console.log(board)
 }
 
 async function getNote(boardId,noteId)

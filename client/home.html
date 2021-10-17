@@ -3,7 +3,7 @@
   <head>
     <!-- SCRIPTS -->
     <script src="environment.js"></script>
-    <script src="middleware.js"></script>
+    <script src="still-frontend.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <!-- FONTS -->
     <link
@@ -20,7 +20,10 @@
   </head>
 </html>
 <body>
-  <h1>scrumblr by <a href="http://aliasaria.ca">aliasaria</a></h1>
+
+  <script>
+    document.body.innerHTML = getBoardById(middlware_boardid).BoardName;
+</script>
   <div class="board-outline">
     <div id="board">
       <div id="board-doodles"></div>
