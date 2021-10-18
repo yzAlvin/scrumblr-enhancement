@@ -134,7 +134,7 @@ console.log("note inserted");
 
 async function getBoardById(boardIdtoGet)
 {
- let  board = await fetch (url+"/"+boardIdtoGet,
+ let board = await fetch (url + "/" + boardIdtoGet,
   {
     method : "GET",
     mode : "cors",
@@ -150,16 +150,12 @@ async function getBoardById(boardIdtoGet)
     
       //response.json().then(console.log(text))
     
-    return response.text().then(function (text) {
-     
-     
-      return text ? console.log(text) : {
-        
-        
-      };
-    });
-  })
-  console.log(board)
+    return response.json()
+          .then((response) => {
+              return response.BoardName
+          });
+
+  });
 }
 
 async function getNote(boardId,noteId)
