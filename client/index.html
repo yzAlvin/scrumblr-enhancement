@@ -48,28 +48,29 @@
         null,
         localStorage.getItem("boardName")
       );
-      console.log(getBoardById('1adafb42-8879-49c7-868d-a89317bd6cf1'));
-      document.getElementById('board-heading') = getBoardById('1adafb42-8879-49c7-868d-a89317bd6cf1');
-     
     </script>
     <title></title>
   </head>
   <body>
-    <script>
-    </script>
+    <script></script>
     <div class="notice-bar">
       this is a demo board. to make a private board, go to
       <a href="/demo">/demo</a>
     </div>
-    <h1 id="board-heading">
+    <h1 id="board-heading"></h1>
 
-    </h1>
+    <script>
+      console.log(getBoardById("1adafb42-8879-49c7-868d-a89317bd6cf1"));
+      document.getElementById("board-heading").innerHTML = getBoardById(
+        "1adafb42-8879-49c7-868d-a89317bd6cf1"
+      );
+    </script>
 
     <!--div.config-->
     <!--	i.fa.fa-cog.fa-lg.faded-icon-->
-  <script>
-     // console.log(getBoardById("10b0b776-ed69-4dfe-aabf-ca0c18150fb3").BoardName);
-  </script>
+    <script>
+      // console.log(getBoardById("10b0b776-ed69-4dfe-aabf-ca0c18150fb3").BoardName);
+    </script>
     <div class="board-outline">
       <div id="board">
         <div id="board-doodles"></div>

@@ -1,8 +1,7 @@
 let middlware_boardid = "";
-let url;
+let url = ENV.URL;
 
 function go() {
-  url = ENV.URL;
   var value = document.forms[0].elements["name"].value;
   value = escape(value);
  
@@ -20,15 +19,16 @@ let responseCode = postBoardName(value);
 
   // console.log("response code :"+JSON.stringify(responseCode));
   //Delaying code run for 500ms so that postBoardName is able to penetrate the request
-  sleep(500);
+
   
-  // Post board name to backend.
+  //Post board name to backend.
   // if(responseCode === 200)
   //  {
   //       window.location.href = "index.html";
+  //       console.log(getBoardById("1adafb42-8879-49c7-868d-a89317bd6cf1"));
     
   //       //Append board name to url.sl
-  //      window.history.replaceState(null, null, value);
+  //     //  window.history.replaceState(null, null, value);
   // }
   //Uncomment or comment when testing
   // console.log(getBoardByName(value));
@@ -134,7 +134,7 @@ console.log("note inserted");
 
 async function getBoardById(boardIdtoGet)
 {
- let board = await fetch (url + "/" + boardIdtoGet,
+  await fetch (url + "/" + boardIdtoGet,
   {
     method : "GET",
     mode : "cors",
