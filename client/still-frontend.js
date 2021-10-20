@@ -134,6 +134,7 @@ console.log("note inserted");
 
 async function getBoardById(boardIdtoGet)
 {
+  let boardNameFromDb
   await fetch (url + "/" + boardIdtoGet,
   {
     method : "GET",
@@ -143,19 +144,13 @@ async function getBoardById(boardIdtoGet)
         "Access-Control-Allow-Origin": "*"
       }
   })
-
-.then((response) => {
-    //window.location.href = "index.html";
-    // middlware_boardid=JSON.stringify(response.JSON());
-    
-      //response.json().then(console.log(text))
-    
-    return response.json()
-          .then((response) => {
-              return response.BoardName
-          });
-
+  .then((response) =>  response.json())
+  .then((response) => {
+    boardNameFromDb = response.BoardName;
   });
+
+  return boardNameFromDb;
+   
 }
 
 async function getNote(boardId,noteId)
